@@ -1,0 +1,80 @@
+{
+  "name": "code-challenges",
+  "version": "1.0.0",
+  "description": "My attempts at solving code challenges.",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"**/*.+(js|json|yml|yaml|md)\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chriskevin/code-challanges.git"
+  },
+  "author": "Chris Sundberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chriskevin/code-challanges/issues"
+  },
+  "homepage": "https://github.com/chriskevin/code-challanges#readme",
+  "dependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": false
+      }
+    },
+    "rules": {
+      "no-unused-vars": 1
+    }
+  },
+  "prettier": {
+    "semi": false
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
